@@ -1,18 +1,14 @@
-# Salesforce DX Project: Next Steps
+# Segurida Social Salesforce 2
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+En esta nueva parte añado 3 nuevos campos al objeto pensionista__c : El booleano vivo__c para saber si un pensionista está vivo o no, el tipo email correo__c para poder comunicarme con el pensionista y el booleano bueno__c para saber si es buena persona o no.Tenemos estas especificaciones:
 
-## How Do You Plan to Deploy Your Changes?
+1.Cada vez que creamos un nuevo pensionista creamos un contacto relacionado con ese registro que tiene en sus campos nombre,apellidos y correo los mismos que el pensionista y en el campo cargo el número de identificación(tuve que hacer ese arreglo porque para hacer flows no me dejaba hacer relaciones con un campo que cree dni__c y busqué ese "arreglo")
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+2.No se puede crear un pensionista con el campo vivo__c a false, nos sale un mensaje de error
 
-## Configure Your Salesforce DX Project
+3.Cada vez que actualizamos un registro de pensionista actualizamos su contacto relacionado
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+4.Cada vez que actualizamos un registro pensionista y cambiamos el campo vivo__c a false se elimina ese registro y su contacto asociado
 
-## Read All About It
+5.Cada vez que eliminamos un registro pensionista(con su contacto asociado en cadena) se manda un correo al pensionista dandóle la bienvenida al cielo o al infierno dependiendo de si ha sido bueno o malo respectivamente.
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
